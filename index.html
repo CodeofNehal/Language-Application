@@ -1,0 +1,79 @@
+<html>
+  <head>
+     <title>Language Application</title>
+     <style>
+         *{
+             font-size:40px;
+             font-family:Times New Roman;
+             background-color:linen;
+          }
+
+          Input[type="checkbox"]{
+              height:0.5em;
+              width:2%;
+          }
+
+          h1,h2
+          {
+             background-color:black;
+             color:white;
+             width:70%;
+             border-radius:2px;
+          }
+
+     </style>
+  </head>
+  <body>
+    <center>
+        <h1>Language Application</h1>
+        <form onsubmit="show()">
+            <input type="text" placeholder="enter your name" id="name">
+            <br><br>
+            <input type="checkbox"  id="py">Phython
+            <input type="checkbox"  id="ja" checked=true>Java
+            <input type="checkbox"  id="js">JavaScript
+            <br><br>
+            <input type="submit"/>
+        </form>
+            <h2 id="msg"/>
+      <script>
+            function show()
+            {
+               event.preventDefault();
+               let name=document.getElementById("name");
+               let py=document.getElementById("py");
+               let ja=document.getElementById("ja");
+               let js=document.getElementById("js");
+               let msg=document.getElementById("msg");
+
+               if(name.value=="")
+               {
+                  alert("Please enter your name");
+                  msg.innerHTML="";
+                  name.focus();
+                  return;
+               }
+
+               let n=name.value;
+               let c="";
+
+               if(py.checked)
+               {
+                   c=c+ "Phython";
+               }
+               if(ja.checked)
+               {
+                   c=c+ "Java";
+               }
+               if(js.checked)
+               {
+                   c=c+ "JavaScript";
+               }
+               
+               let a="Name=  "+n+"  Language= "+c;
+               msg.innerHTML=a;
+            }
+      </script>
+    </center>
+  </body>
+</html>
